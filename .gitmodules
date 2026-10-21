@@ -1,3 +1,6 @@
 [submodule "app/backend"]
 	path = app/backend
 	url = https://github.com/opizarro98/akira-educacion-backend.git
+[submodule "app/frontend"]
+	path = app/frontend
+	url = https://github.com/opizarro98/akira-educacion-frontend.git
