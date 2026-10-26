@@ -1,8 +1,9 @@
 # Akira Educación
 
 Sistema de gestión escolar multiinstitución. Permite administrar instituciones, usuarios y roles,
-estudiantes, representantes, catálogo académico, matrículas, obligaciones de cobro, pagos y recibos
-internos.
+estudiantes, representantes, catálogo académico, matrículas, obligaciones de cobro, pagos, recibos
+internos, egresos, caja, reportes financieros, comunicaciones asistidas e importación de estudiantes
+desde Excel.
 
 El repositorio es un monorepo con dos submódulos Git:
 
@@ -43,6 +44,10 @@ PostgreSQL (localhost:5432)
 7. Aplicar el pago confirmado a una o varias obligaciones.
 8. Consultar o imprimir el recibo interno generado.
 9. Si hay un error, revertir aplicaciones y anular el pago con motivo.
+10. Registrar egresos por categoría, confirmarlos para generar la salida de caja y anularlos con motivo si es necesario.
+11. Consultar la caja, los reportes financieros y el dashboard institucional.
+12. Preparar una comunicación asistida: elegir estudiante, representante autorizado y plantilla, revisar el mensaje y abrir el enlace `wa.me`. El sistema no confirma el envío.
+13. Importar estudiantes desde Excel en tres pasos: validación, vista previa con errores y duplicados, y confirmación explícita.
 
 ### Roles
 
@@ -50,9 +55,9 @@ PostgreSQL (localhost:5432)
 |---|---|
 | `PLATFORM_ADMIN` | Administra instituciones de toda la plataforma. No pertenece a una institución. |
 | `INSTITUTION_ADMIN` | Administración completa de su institución. |
-| `SECRETARY` | Estudiantes, representantes, matrículas y consulta financiera. |
-| `TREASURY` | Operación financiera: cobros, conceptos, pagos, aplicaciones, anulaciones y recibos. |
-| `DIRECTOR` | Consulta académica y financiera, sin modificar datos. |
+| `SECRETARY` | Estudiantes, representantes, matrículas, comunicaciones y consulta financiera. Puede previsualizar y confirmar importaciones de estudiantes. |
+| `TREASURY` | Operación financiera: cobros, conceptos, pagos, aplicaciones, anulaciones, recibos, egresos y caja. Puede preparar comunicaciones y consultar importaciones. |
+| `DIRECTOR` | Consulta académica y financiera, comunicaciones e importaciones, sin modificar datos. |
 
 ## Requisitos
 
@@ -475,3 +480,7 @@ git submodule update --init --recursive
 - `docs/fase-2-implementacion.md`
 - `docs/fase-3-implementacion.md`
 - `docs/fase-3b-implementacion.md`
+- `docs/fase-4-implementacion.md`
+- `docs/fase-5a-implementacion.md`
+- `docs/ejemplos/README.md` (columnas y reglas de importación)
+- `docs/ejemplos/plantillas-comunicacion.md`
