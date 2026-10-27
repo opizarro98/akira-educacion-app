@@ -1,0 +1,9 @@
+# Secretos y configuración local
+.env
+.env.local
+.env.*.local
+
+# Artefactos de build locales
+app/frontend/dist/
+app/frontend/.angular/
+app/backend/target/

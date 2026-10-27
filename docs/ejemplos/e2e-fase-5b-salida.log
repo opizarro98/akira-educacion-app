@@ -1,0 +1,86 @@
+
+== 1-2. Login PLATFORM_ADMIN y contexto global ==
+  OK   Login PLATFORM_ADMIN
+  OK   Token de plataforma emitido
+  OK   Crear institución A con administrador
+  OK   Crear institución B con administrador
+  OK   PLATFORM_ADMIN lista usuarios con contexto explícito
+  OK   PLATFORM_ADMIN sin contexto es rechazado
+
+== 3. Login INSTITUTION_ADMIN ==
+  OK   Login administrador institucional A
+
+== 4-5. Estudiante y representante autorizado ==
+  OK   Crear estudiante
+  OK   Crear representante
+  OK   Vincular representante autorizado
+
+== 6-7. Matrícula y obligación ==
+  OK   Crear nivel
+  OK   Crear período
+  OK   Crear servicio
+  OK   Crear tarifa
+  OK   Crear plan
+  OK   Crear matrícula
+  OK   Confirmar matrícula
+  OK   Generar obligación inicial
+  OK   Obligación por 100.00 (total=100.00)
+
+== 8-10. Pago, aplicación y recibo ==
+  OK   Registrar pago por transferencia (pendiente)
+  OK   Confirmar pago
+  OK   Aplicar pago a la obligación
+  OK   Consultar recibo interno
+  OK   Recibo emitido: REC-2026-000001
+
+== 11-13. Egreso, confirmación y caja ==
+  OK   Crear categoría de egreso
+  OK   Registrar egreso
+  OK   Confirmar egreso
+  OK   Consultar movimientos de caja
+
+== 14-15. Comunicación asistida y wa.me ==
+  OK   Crear plantilla de mensaje
+  OK   Vista previa de comunicación
+  OK   Enlace wa.me generado: https://wa.me/593999999999?text=Hola%20%7Bestudiante%7D%2C%20somos%20%7Binstitucion%7D.
+  OK   Registrar comunicación preparada
+  OK   Registrar apertura del enlace (no confirma envío)
+
+== 16-18. Importación de estudiantes ==
+  OK   Conteo previo de estudiantes
+  OK   Vista previa de Excel sin persistir
+  OK   El conteo no cambia tras la vista previa
+  OK   Vista previa no persiste (1 estudiantes)
+  OK   Segunda vista previa para detectar duplicados internos
+  OK   Duplicados detectados en el archivo: 1
+  OK   Confirmar importación (con duplicados contra existentes)
+  OK   Reintentar la confirmación es idempotente
+  OK   Confirmar lote con duplicados internos
+
+== 19. Dashboard y reportes ==
+  OK   Consultar dashboard
+  OK   Reporte de saldos pendientes
+  OK   Resumen de caja
+
+== 20. Aislamiento entre instituciones ==
+  OK   Login administrador institucional B
+  OK   Institución B no puede ver el estudiante de A
+  OK   Institución B no puede forzar el contexto de A
+
+== Permisos por rol ==
+  OK   Crear usuario DIRECTOR
+  OK   Login DIRECTOR
+  OK   DIRECTOR no puede registrar egresos
+
+== Desactivación de usuario ==
+  OK   Crear usuario temporal
+  OK   Login usuario temporal
+  OK   Desactivar usuario
+  OK   Token del usuario desactivado queda invalidado
+  OK   Usuario desactivado no puede iniciar sesión
+
+=============================================
+Resultado E2E: 56 correctos, 0 fallidos
+Institución A: 4bd0e01f-2477-448d-84b9-a5adbfe412d9
+Institución B: 6f65bba1-0e61-4012-bd12-d33e4cf6b584
+=============================================
